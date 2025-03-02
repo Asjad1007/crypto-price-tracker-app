@@ -1,6 +1,9 @@
-
-
 # Project Setup Guide
+
+### Both website are hosted on vercel
+
+- Web-App- https://crypto-price-tracker-app-inky.vercel.app/
+- Documentation- https://crypto-price-tracker-documentation.vercel.app/docs/intro
 
 ## Prerequisites
 
@@ -45,9 +48,6 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ## Running the Mobile App
 
 Currently, our project does not include a mobile-specific application. However, the web app is fully responsive and works seamlessly on mobile devices.
-
-
-
 
 # API Integration Details
 
@@ -94,8 +94,6 @@ useEffect(() => {
 }, []);
 ```
 
-
-
 # State Management Documentation
 
 ## Overview
@@ -141,9 +139,6 @@ Why? Built into React, no extra dependencies, great for medium-sized apps.
 
 - Simplicity: Built-in hooks are enough for this small app.
 - No Complexity: No need for global state or advanced caching.
-
-
-
 
 # Challenges & Solutions
 

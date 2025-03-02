@@ -1,5 +1,3 @@
-
-```md
 # Crypto Price Tracker - Documentation
 
 ## Table of Contents
@@ -27,6 +25,8 @@ Ensure you have the following installed:
 git clone https://github.com/your-username/crypto-price-tracker.git
 cd crypto-price-tracker
 ```
+
+````
 
 ### Setup & Run Web App (Next.js)
 
@@ -71,6 +71,7 @@ cd crypto-price-tracker
 ## API Integration Details
 
 ### API Used: **CoinGecko**
+
 We fetch real-time cryptocurrency price data using [CoinGecko's API](https://www.coingecko.com/en/api).
 
 ### API Endpoint Used
@@ -195,11 +196,13 @@ export const CryptoProvider = ({ children }) => {
 ## Challenges & Solutions
 
 ### **1. API Rate Limits**
-**Challenge**: CoinGecko API has rate limits that could block frequent requests.  
+
+**Challenge**: CoinGecko API has rate limits that could block frequent requests.
 **Solution**: Used React Query with caching and `refetchInterval` instead of polling.
 
 ### **2. UI Freezing on API Call**
-**Challenge**: Fetching large data caused UI lag.  
+
+**Challenge**: Fetching large data caused UI lag.
 **Solution**: Added a `loading` state and displayed a "Loading..." message.
 
 ```js
@@ -207,15 +210,19 @@ if (loading) return <p>Loading...</p>;
 ```
 
 ### **3. Mobile Compatibility**
-**Challenge**: Mobile UI was breaking on small screens.  
+
+**Challenge**: Mobile UI was breaking on small screens.
 **Solution**: Used Tailwind's responsive utilities:
 
 ```html
-<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+<div
+  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+></div>
 ```
 
 ### **4. Persistent State on Refresh**
-**Challenge**: Data resets when page reloads.  
+
+**Challenge**: Data resets when page reloads.
 **Solution**: Used `localStorage` to persist crypto prices:
 
 ```js
@@ -239,11 +246,13 @@ useEffect(() => {
 - **Live Updates**: Auto-refreshing every 30 seconds.
 
 This project can be **expanded** by adding:
+
 - **More coins** (fetching a broader list dynamically).
 - **Charts** using `chart.js` or `recharts`.
 - **Historical price data** for trends.
 
 Happy coding! 🚀
+
 ```
 
 ---
@@ -254,3 +263,5 @@ Happy coding! 🚀
 3. **GitHub will render this beautifully** in the repository view.
 
 This single Markdown file **fully documents your project** in a clean, professional format. 🚀
+```
+````

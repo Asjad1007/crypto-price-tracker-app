@@ -7,7 +7,7 @@ sidebar_position: 1
 ### Both website are hosted on vercel
 
 - Web-App- https://crypto-price-tracker-app-inky.vercel.app/
-- Documentation- https://crypto-price-tracker-documentation.vercel.app/docs/api-integration
+- Documentation- https://crypto-price-tracker-documentation.vercel.app/docs/intro
 
 ## Crypto Price Tracker Documentation
 
