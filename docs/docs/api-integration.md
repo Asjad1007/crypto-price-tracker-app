@@ -1,26 +1,48 @@
-API Integration
-===============
+---
+sidebar_position: 3
+---
 
-Fetching Crypto Prices
-----------------------
+# API Integration Details
 
-We fetch live cryptocurrency prices from an external API using `fetch` inside React Query.
+## API Used: CoinGecko
 
-### API Endpoint
+We fetch real-time cryptocurrency price data using CoinGecko's API.
 
-We use the following API to retrieve real-time cryptocurrency prices:
+## API Endpoint Used
 
-    GET https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd
+- GET https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,ripple,cardano,polkadot&vs_currencies=usd
 
-### Example API Call
+## Fetching Data in Web App (Next.js)
+
 ```js
-const fetchCryptoPrices = async () => {
-  const response = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd");
-  return response.json();
+const fetchData = async () => {
+  setLoading(true);
+  try {
+    const response = await fetch(
+      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,ripple,cardano,polkadot&vs_currencies=usd"
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    const result = await response.json();
+    console.log(result);
+    setData(result);
+  } catch (err) {
+    setError(err);
+  } finally {
+    setLoading(false);
+  }
 };
+```
 
-### Updating Data
+## Auto-Update Interval (Live Updates)
 
-*   The refresh button triggers a re-fetch of the data.
-*   React Query automatically updates the cache when new data arrives.
-*   Users always see the latest prices without manually refreshing.
+### To refresh data automatically every 30 seconds:
+
+```js
+useEffect(() => {
+  fetchData(); // initial
+  const interval = setInterval(fetchData, 30000); // auto-refresh
+  return () => clearInterval(interval);
+}, []);
+```

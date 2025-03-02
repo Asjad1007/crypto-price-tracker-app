@@ -1,4 +1,6 @@
-
+---
+sidebar_position: 2
+---
 
 # Project Setup Guide
 
@@ -10,20 +12,35 @@
 
 ## Clone the Repository
 
-    git clone https://github.com/your-repo/crypto_price_tracker.git
+```
+    git clone https://github.com/Asjad1007/crypto-price-tracker-app.git
+
     cd crypto_price_tracker
+```
 
 ## Install Dependencies
 
+```
     npm install
-    # or
+```
+
+    or
+
+```
     yarn install
+```
 
 ## Running the Web App
 
+```
     npm run dev
-    # or
+```
+
+or
+
+```
     yarn dev
+```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 

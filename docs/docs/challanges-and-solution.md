@@ -1,25 +1,52 @@
+---
+sidebar_position: 5
+---
+
 # Challenges & Solutions
 
-## 1\. **Ensuring UI Responsiveness**
+## 1. API Rate Limits
 
-**Problem:** The initial layout was too constrained, making the UI feel congested.
+**Challenge:** CoinGecko API has rate limits that could block frequent requests.
 
-**Solution:** Increased container width for better desktop experience while maintaining mobile responsiveness.
+**Solution:** Used React Query with caching and refetchInterval instead of polling.
 
-## 2\. **Refresh Button UI Issue**
+## 2. UI Freezing on API Call
 
-**Problem:** The refresh button was breaking the layout on smaller screens.
+**Challenge:** Fetching large data caused UI lag.
 
-**Solution:** Applied `flex-wrap` to ensure proper alignment and added appropriate margins.
+**Solution:** Added a loading state and displayed a "Loading..." message.
 
-## 3\. **Data Fetching Performance**
+```html
+if (loading) return
+<p>Loading...</p>
+;
+```
 
-**Problem:** Frequent API calls were slowing down performance.
+## 3. Mobile Compatibility
 
-**Solution:** Used React Query for caching and background re-fetching.
+**Challenge:** Mobile UI was breaking on small screens.
 
-## 4\. **Ensuring Smooth State Management**
+**Solution:** Used Tailwind's responsive utilities:
 
-**Problem:** Initially, all state was stored in React’s `useState`, causing unnecessary re-renders.
+```html
+<div
+  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+></div>
+```
 
-**Solution:** Moved local state to Zustand and API state to React Query for optimized performance.
+## 4. Persistent State on Refresh
+
+**Challenge:** Data resets when page reloads.
+
+**Solution:** Used localStorage to persist crypto prices:
+
+```js
+useEffect(() => {
+  const savedData = JSON.parse(localStorage.getItem("cryptoData"));
+  if (savedData) setData(savedData);
+}, []);
+
+useEffect(() => {
+  localStorage.setItem("cryptoData", JSON.stringify(data));
+}, [data]);
+```

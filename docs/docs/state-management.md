@@ -1,36 +1,49 @@
-# State Management
+---
+sidebar_position: 4
+---
 
-We use **React Query** for API data caching and **Zustand** for local state management.
+# State Management Documentation
 
-## Why React Query?
+## Overview
 
-- Automatic caching of fetched data.
-- Background re-fetching for up-to-date information.
-- Eliminates the need for manual state handling with `useState`.
+This app uses React's built-in hooks (useState, useEffect) for state management. It’s simple and lightweight, perfect for small apps like this. However, for larger apps, consider these alternatives:
 
-### Example Usage
+# 1. React Query
+
+Use Case: Fetching and caching data.
+
+Why? Handles loading, error states, and auto-refreshing with less code.
+
+Example:
 
 ```js
-import { useQuery } from "react-query";
-
-const { data, error, isLoading } = useQuery("cryptoPrices", fetchCryptoPrices);
+const { data, isLoading, error } = useQuery("cryptoPrices", fetchData, {
+  refetchInterval: 30000,
+});
 ```
 
-## Why Zustand?
+# 2. Zustand
 
-- Minimalistic and lightweight state management.
-- No unnecessary re-renders.
-- Easy-to-use API.
+Use Case: Global state management.
 
-### Example Store
+Why? Lightweight and centralized state for larger apps.
+
+Example:
 
 ```js
-import create from "zustand";
-
-const useCryptoStore = create((set) => ({
-  cryptoData: [],
-  setCryptoData: (data) => set({ cryptoData: data }),
+const useStore = create((set) => ({
+  data: {},
+  setData: (newData) => set({ data: newData }),
 }));
-
-export default useCryptoStore;
 ```
+
+# 3. Context API
+
+Use Case: Sharing state across components.
+
+Why? Built into React, no extra dependencies, great for medium-sized apps.
+
+## Why Not Use Them Here?
+
+- Simplicity: Built-in hooks are enough for this small app.
+- No Complexity: No need for global state or advanced caching.

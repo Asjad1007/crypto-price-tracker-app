@@ -1,4 +1,15 @@
-# Crypto Price Tracker Documentation
+---
+sidebar_position: 1
+---
+
+# Introduction
+
+### Both website are hosted on vercel
+
+- Web-App- https://crypto-price-tracker-app-inky.vercel.app/
+- Documentation- https://crypto-price-tracker-documentation.vercel.app/docs/api-integration
+
+## Crypto Price Tracker Documentation
 
 Welcome to the Crypto Price Tracker documentation! This guide will walk you through the project setup, API integration, state management, and challenges faced during development.
 
