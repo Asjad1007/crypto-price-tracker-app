@@ -1,4 +1,3 @@
-Here is a **single raw Markdown (`.md`) file** covering all four documentation topics:
 
 ```md
 # Crypto Price Tracker - Documentation
