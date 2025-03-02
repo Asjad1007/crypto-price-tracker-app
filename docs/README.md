@@ -1,6 +1,4 @@
----
-sidebar_position: 2
----
+
 
 # Project Setup Guide
 
@@ -51,10 +49,6 @@ Currently, our project does not include a mobile-specific application. However, 
 
 
 
----
-sidebar_position: 3
----
-
 # API Integration Details
 
 ## API Used: CoinGecko
@@ -101,9 +95,6 @@ useEffect(() => {
 ```
 
 
----
-sidebar_position: 4
----
 
 # State Management Documentation
 
@@ -153,9 +144,6 @@ Why? Built into React, no extra dependencies, great for medium-sized apps.
 
 
 
----
-sidebar_position: 5
----
 
 # Challenges & Solutions
 
